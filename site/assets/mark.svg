@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Patrick Dev monogram</title>
+  <rect width="64" height="64" rx="16" fill="#151c26"/>
+  <path d="M17 46V18h13.5c8 0 12.5 4.2 12.5 10.5S38.5 39 30.5 39H24v7h-7Zm7-13h6c3.8 0 5.8-1.5 5.8-4.5S33.8 24 30 24h-6v9Z" fill="#65d9e8"/>
+  <path d="M43.5 39.5 49 46l-5.5 6.5H37L42.5 46 37 39.5h6.5Z" fill="#f2c879" transform="translate(0 -3)"/>
+</svg>
+

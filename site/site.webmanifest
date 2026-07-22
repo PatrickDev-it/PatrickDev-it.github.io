@@ -1,0 +1,19 @@
+{
+  "name": "Patrick Dev — Engineering Portfolio",
+  "short_name": "Patrick Dev",
+  "description": "Evidence-led product, systems, AI/ML, and platform engineering portfolio.",
+  "lang": "en",
+  "start_url": "/",
+  "scope": "/",
+  "display": "minimal-ui",
+  "background_color": "#080b10",
+  "theme_color": "#080b10",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

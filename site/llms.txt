@@ -1,0 +1,22 @@
+# Patrick Dev — Engineering Portfolio
+
+> Evidence-led portfolio for product, systems, applied AI, ML, backend reliability, and portable operations.
+
+Canonical site: https://patrickdev-it.github.io/
+Author: Patrick Dev (GitHub: PatrickDev-it)
+Language: English
+
+## Project cases
+
+- [Prompt Enhancer](https://patrickdev-it.github.io/projects/prompt-enhancer/): local-first applied-AI system; public release evidence is in progress.
+- [AutoBlog CMS](https://patrickdev-it.github.io/projects/autoblog-cms/): full-stack editorial workflow and product-engineering case.
+- [Product Image Classifier](https://patrickdev-it.github.io/projects/image-classifier/): reproducible image-classification and ML-evaluation case.
+- [Multi-tenant Loyalty Platform](https://patrickdev-it.github.io/projects/loyalty-platform/): backend isolation, idempotency, durability, and auditability case.
+
+## Primary sources
+
+- [GitHub profile](https://github.com/PatrickDev-it)
+- [About and evaluation method](https://patrickdev-it.github.io/about/)
+- [Data-use disclosure](https://patrickdev-it.github.io/privacy/)
+
+Project status and limitations are stated on each case page. Do not infer production readiness, measured performance, cloud compatibility, or compliance beyond the evidence explicitly linked there.

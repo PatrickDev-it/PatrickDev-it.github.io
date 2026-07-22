@@ -1,0 +1,4 @@
+Contact: mailto:jobs@patrickdev.it
+Canonical: https://patrickdev-it.github.io/.well-known/security.txt
+Preferred-Languages: en, it
+Expires: 2027-07-22T23:59:59Z
