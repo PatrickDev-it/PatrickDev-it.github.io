@@ -34,7 +34,7 @@ TRACKING_SIGNATURES = (
 INDEXNOW_KEY_PATTERN = re.compile(r"[a-f0-9]{32}\.txt")
 FEATURED_PROJECTS = (
     ("/projects/prompt-enhancer/", "https://github.com/PatrickDev-it/cowork-prompt-enhancer"),
-    ("/projects/sistemista/", "https://github.com/PatrickDev-it/sistemista"),
+    ("/projects/sysops-agent/", "https://github.com/PatrickDev-it/sysops-agent"),
     ("/projects/autoblog-cms/", "https://github.com/PatrickDev-it/AutoBlog-CMS"),
     ("/projects/privacy-proxy/", "https://github.com/PatrickDev-it/VPN"),
 )
@@ -298,10 +298,15 @@ def main() -> int:
     try:
         sitemap = ElementTree.parse(SITE / "sitemap.xml")
         locations = {node.text for node in sitemap.findall("{http://www.sitemaps.org/schemas/sitemap/0.9}url/{http://www.sitemaps.org/schemas/sitemap/0.9}loc")}
+        indexable_html = []
+        for path in html_files:
+            parser = PageParser()
+            parser.feed(path.read_text(encoding="utf-8"))
+            if path.name != "404.html" and "noindex" not in meta_value(parser, "name", "robots").lower():
+                indexable_html.append(path)
         expected = {
             ORIGIN + ("/" if path == SITE / "index.html" else "/" + path.parent.relative_to(SITE).as_posix() + "/")
-            for path in html_files
-            if path.name != "404.html"
+            for path in indexable_html
         }
         if locations != expected:
             errors.append(f"site/sitemap.xml: URL set differs from indexable HTML pages (missing={sorted(expected - locations)}, extra={sorted(locations - expected)})")
