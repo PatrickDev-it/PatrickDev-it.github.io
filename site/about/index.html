@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>About Patrick Dev — Engineering Method and Scope</title>
+    <title>About Patrick Dev (PatrickDev-it) — Engineering Method</title>
     <meta name="description" content="Patrick Dev's engineering scope, operating principles, portfolio strategy, and evidence-led approach to product, systems, AI/ML, and platform work.">
     <meta name="author" content="Patrick Dev">
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
@@ -11,31 +11,53 @@
     <meta name="theme-color" content="#080b10">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
     <link rel="canonical" href="https://patrickdev-it.github.io/about/">
+    <link rel="alternate" hreflang="en" href="https://patrickdev-it.github.io/about/">
+    <link rel="alternate" hreflang="x-default" href="https://patrickdev-it.github.io/about/">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/assets/styles.css">
     <meta property="og:type" content="profile">
     <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Patrick Dev Engineering Portfolio">
     <meta property="og:title" content="About Patrick Dev — Engineering Method and Scope">
     <meta property="og:description" content="An evidence-led approach to product, systems, AI/ML, reliability, and portable operations.">
     <meta property="og:url" content="https://patrickdev-it.github.io/about/">
     <meta property="og:image" content="https://patrickdev-it.github.io/assets/social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Patrick Dev engineering portfolio">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Patrick Dev (PatrickDev-it) — Engineering Method">
+    <meta name="twitter:description" content="An evidence-led approach to product, systems, AI/ML, reliability, and portable operations.">
+    <meta name="twitter:image" content="https://patrickdev-it.github.io/assets/social-card.png">
+    <meta name="twitter:image:alt" content="Patrick Dev engineering portfolio">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "AboutPage",
-        "name": "About Patrick Dev",
-        "url": "https://patrickdev-it.github.io/about/",
-        "mainEntity": {
-          "@id": "https://patrickdev-it.github.io/#patrick-dev",
-          "@type": "Person",
-          "name": "Patrick Dev",
-          "alternateName": "PatrickDev-it",
-          "sameAs": [
-            "https://github.com/PatrickDev-it",
-            "https://www.linkedin.com/in/patrickdev-it/"
-          ]
-        }
+        "@graph": [
+          {
+            "@type": "AboutPage",
+            "@id": "https://patrickdev-it.github.io/about/#page",
+            "name": "About Patrick Dev (PatrickDev-it)",
+            "url": "https://patrickdev-it.github.io/about/",
+            "inLanguage": "en",
+            "isPartOf": {"@id": "https://patrickdev-it.github.io/#website"},
+            "mainEntity": {"@id": "https://patrickdev-it.github.io/#patrick-dev"}
+          },
+          {
+            "@type": "Person",
+            "@id": "https://patrickdev-it.github.io/#patrick-dev",
+            "name": "Patrick Dev",
+            "alternateName": "PatrickDev-it",
+            "sameAs": ["https://github.com/PatrickDev-it", "https://www.linkedin.com/in/patrickdev-it/"]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "Portfolio", "item": "https://patrickdev-it.github.io/"},
+              {"@type": "ListItem", "position": 2, "name": "About", "item": "https://patrickdev-it.github.io/about/"}
+            ]
+          }
+        ]
       }
     </script>
   </head>
@@ -50,7 +72,7 @@
         <ul class="nav-links">
           <li><a href="/">Work</a></li>
           <li><a aria-current="page" href="/about/">About</a></li>
-          <li><a href="https://github.com/PatrickDev-it">GitHub</a></li>
+          <li><a rel="me" href="https://github.com/PatrickDev-it">GitHub</a></li>
           <li><a href="mailto:jobs@patrickdev.it">Contact</a></li>
         </ul>
       </nav>

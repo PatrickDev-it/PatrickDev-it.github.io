@@ -7,7 +7,7 @@ The source for [patrickdev-it.github.io](https://patrickdev-it.github.io/), an e
 - Hand-authored semantic HTML and CSS; no framework, package manager, build step, client-side application, or executable JavaScript.
 - No first-party analytics, advertising, cookies, browser storage, fingerprinting, forms, embeds, remote fonts, or runtime CDN dependencies.
 - One small local stylesheet, local SVG assets, immutable Git history, and native GitHub Pages hosting.
-- Unique titles, descriptions, canonical URLs, Open Graph metadata, structured data, sitemap, robots policy, and an experimental `llms.txt` discovery surface.
+- Unique titles, descriptions, canonical and language-alternate URLs, per-project social previews, entity-linked JSON-LD, sitemap, robots policy, and an experimental `llms.txt` discovery surface.
 - Claims are status-qualified and link to primary repository evidence when it exists.
 
 GitHub Pages may process technical request information as part of its own hosting and security operation. The site's exact data-use statement is published at `/privacy/`; this repository does not claim legal compliance certification.
@@ -34,7 +34,7 @@ python scripts/validate_site.py
 python -m http.server 8000 --directory site
 ```
 
-The validator fails on incomplete page metadata, invalid structured data, broken internal links, executable scripts, forms, embeds, common tracking signatures, or remote runtime resources.
+The validator fails on incomplete page or social metadata, missing or malformed 1200×630 first-party previews, invalid structured data, broken internal links, executable scripts, forms, embeds, common tracking signatures, or remote runtime resources.
 
 ## Deploy
 
@@ -42,7 +42,7 @@ Pushes to `main` run validation and publish the exact `site/` directory with Git
 
 ## Maintenance
 
-Update the affected HTML page and `sitemap.xml` when a project status changes. Review `.well-known/security.txt` before its expiry date. No dependency-update cycle is required for the website itself; only the GitHub Actions versions require periodic review.
+Update the affected HTML page, structured-data `dateModified`, social preview, and `sitemap.xml` when a project status changes. Review `.well-known/security.txt` before its expiry date. Search Console and Bing Webmaster Tools verification remain optional account-level operations; the site itself has no analytics dependency. No dependency-update cycle is required for the website itself; only the GitHub Actions versions require periodic review.
 
 ## License
 
