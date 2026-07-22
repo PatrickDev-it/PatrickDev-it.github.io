@@ -46,3 +46,15 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+  notify-indexnow:
+    if: github.event_name != 'pull_request'
+    needs: deploy
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+      - name: Notify participating search engines
+        run: python scripts/submit_indexnow.py
