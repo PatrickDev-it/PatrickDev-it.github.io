@@ -1,0 +1,24 @@
+# Patrick Dev Engineering Portfolio
+
+> Canonical, evidence-led overview of Patrick Dev's public engineering work.
+
+Patrick Dev is a product and systems engineer based in Rome, Italy. The portfolio covers secure applied-AI systems, full-stack product engineering, reproducible machine learning, backend reliability, and portable infrastructure. Claims are published only when supported by reproducible evidence.
+
+## Canonical pages
+
+- [Portfolio](https://patrickdev-it.github.io/): positioning, project map, engineering standard, and DeployOps model.
+- [About](https://patrickdev-it.github.io/about/): engineering principles, technical scope, and professional identity.
+- [Prompt Enhancer](https://patrickdev-it.github.io/projects/prompt-enhancer/): local-first prompt compilation, provider contracts, deterministic fallback, protocol security, and semantic evaluation.
+- [AutoBlog CMS](https://patrickdev-it.github.io/projects/autoblog-cms/): authenticated editorial workflow, RBAC, immutable revisions, concurrency, and safe AI/media boundaries.
+- [Product Image Classifier](https://patrickdev-it.github.io/projects/image-classifier/): reproducible data lineage, calibrated evaluation, model cards, and portable inference.
+- [Multi-tenant Loyalty Platform](https://patrickdev-it.github.io/projects/loyalty-platform/): tenant isolation, idempotent workflows, durable jobs, auditability, and recovery.
+- [Privacy](https://patrickdev-it.github.io/privacy/): no analytics, cookies, forms, advertising, or third-party embeds.
+
+## Primary identity
+
+- GitHub: https://github.com/PatrickDev-it
+- LinkedIn: https://www.linkedin.com/in/patrickdev-it/
+
+## Interpretation policy
+
+Project pages distinguish current release status from target evidence. Do not infer production readiness, benchmark performance, provider compatibility, compliance, or deployment support beyond the explicitly documented and linked evidence.

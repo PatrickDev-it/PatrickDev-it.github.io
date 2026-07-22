@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multi-tenant Loyalty Platform — Backend Reliability Engineering</title>
+  <meta name="description" content="A backend reliability project focused on tenant isolation, validated commands, idempotent workflows, durable jobs, audit history, and failure recovery.">
+  <meta name="author" content="Patrick Dev">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <link rel="canonical" href="https://patrickdev-it.github.io/projects/loyalty-platform/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Multi-tenant Loyalty Platform — Backend Reliability Engineering">
+  <meta property="og:description" content="Tenant isolation, idempotent workflows, durable jobs, auditability, and failure recovery in a production-shaped backend.">
+  <meta property="og:url" content="https://patrickdev-it.github.io/projects/loyalty-platform/">
+  <meta property="og:image" content="https://patrickdev-it.github.io/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "Multi-tenant Loyalty Platform",
+    "alternateName": "Electronic Invoice Management",
+    "url": "https://patrickdev-it.github.io/projects/loyalty-platform/",
+    "codeRepository": "https://github.com/PatrickDev-it/Electronic-Invoice-Management",
+    "description": "A backend reliability project focused on tenant isolation, validated commands, idempotent workflows, durable jobs, audit history, and failure recovery.",
+    "programmingLanguage": "TypeScript",
+    "author": { "@id": "https://patrickdev-it.github.io/#patrick-dev" },
+    "dateModified": "2026-07-22"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><a class="brand" href="/" aria-label="Patrick Dev home"><span class="brand-mark" aria-hidden="true">PD</span><span>Patrick Dev</span></a><nav aria-label="Primary navigation"><a href="/">Work</a><a href="/about/">About</a><a href="/privacy/">Privacy</a></nav></header>
+  <main id="main">
+    <article class="case-study">
+      <header class="case-header">
+        <a class="back-link" href="/#portfolio">← All projects</a>
+        <p class="eyebrow">Backend · Reliability · Project 04</p>
+        <h1>Multi-tenant Loyalty Platform</h1>
+        <p class="lede">A loyalty, coupon, customer, and gift-card backend being repositioned around its actual domain and hardened for multi-tenant correctness.</p>
+        <div class="case-status"><span class="status">Domain modernization</span><a href="https://github.com/PatrickDev-it/Electronic-Invoice-Management" rel="noopener noreferrer">Public repository <span aria-hidden="true">↗</span></a></div>
+      </header>
+      <section><h2>Portfolio responsibility</h2><p>This project demonstrates backend ownership under concurrency and failure: tenant isolation, strict contracts, transactional state changes, idempotent commands, outbox processing, durable schedules, auditability, and recovery.</p></section>
+      <section><h2>Target evidence</h2><ul class="evidence-list"><li>Session-derived tenant context enforced at policy, query, and persistence boundaries.</li><li>Validated command schemas without generic mass assignment.</li><li>Short-lived authentication with explicit rotation and revocation behavior.</li><li>Idempotent outbox and worker execution under duplicate delivery.</li><li>Failure-safe email, PDF, birthday, coupon, and gift-card workflows.</li><li>Strict TypeScript, integration tests, observability, migration, and rollback evidence.</li></ul></section>
+      <section><h2>Principal invariant</h2><blockquote>No request, job, or generated identifier may read or mutate data outside its authenticated tenant boundary.</blockquote></section>
+      <section><h2>Current state</h2><p>The public repository retains its historical name while the implementation is re-scoped. “Electronic invoice” is not used as a product claim for behavior that currently belongs to loyalty operations.</p></section>
+    </article>
+  </main>
+  <footer class="site-footer"><p>© 2026 Patrick Dev.</p><p><a href="/privacy/">Static and tracking-free.</a></p></footer>
+</body>
+</html>
