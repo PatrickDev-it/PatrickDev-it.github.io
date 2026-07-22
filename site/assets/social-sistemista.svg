@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Sistemista engineering case</title>
+  <desc id="desc">Bounded local operations: fail-closed policy, verification, recovery, and audit trails.</desc>
+  <defs><radialGradient id="glow" cx="88%" cy="0%" r="78%"><stop offset="0" stop-color="#173f51"/><stop offset="1" stop-color="#080b10"/></radialGradient></defs>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect x="70" y="70" width="82" height="82" rx="21" fill="#151c26" stroke="#324155"/>
+  <path d="M91 98h40v8H91zm0 15h40v8H91zm0 15h26v8H91z" fill="#65d9e8"/>
+  <text x="70" y="270" fill="#65d9e8" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="4">BOUNDED LOCAL OPERATIONS</text>
+  <text x="70" y="365" fill="#f4f7fb" font-family="Arial, sans-serif" font-size="76" font-weight="700">Sistemista</text>
+  <text x="70" y="435" fill="#c4ccd7" font-family="Arial, sans-serif" font-size="31">Fail-closed policy · Verification · Recovery · Audit</text>
+  <line x1="70" y1="520" x2="1130" y2="520" stroke="#253041"/>
+  <text x="70" y="566" fill="#a7b1c0" font-family="Arial, sans-serif" font-size="24">PatrickDev-it · Evidence-led engineering portfolio</text>
+</svg>

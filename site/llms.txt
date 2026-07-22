@@ -9,9 +9,9 @@ Language: English
 ## Project cases
 
 - [Prompt Enhancer](https://patrickdev-it.github.io/projects/prompt-enhancer/): released local-first applied-AI system with protocol security, reproducible evaluation, and checksummed v1.0.0 evidence.
+- [Sistemista](https://patrickdev-it.github.io/projects/sistemista/): public-alpha local operations agent with fail-closed classification, bounded execution policy, verification, recovery, and audit trails; not an OS sandbox.
 - [AutoBlog CMS](https://patrickdev-it.github.io/projects/autoblog-cms/): repository-complete full-stack editorial release candidate; public v2 remains externally gated.
-- [Product Image Classifier](https://patrickdev-it.github.io/projects/image-classifier/): reproducible image-classification and ML-evaluation case.
-- [Multi-tenant Loyalty Platform](https://patrickdev-it.github.io/projects/loyalty-platform/): backend isolation, idempotency, durability, and auditability case.
+- [Authenticated Privacy Proxy](https://patrickdev-it.github.io/projects/privacy-proxy/): containerized Mitmproxy–Privoxy–Tor stack with authenticated ingress and policy enforcement; deployment outcomes remain operator-dependent.
 
 ## Primary sources
 
