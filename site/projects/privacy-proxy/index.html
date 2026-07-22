@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Authenticated Privacy Proxy — Infrastructure Engineering | Patrick Dev</title>
+    <meta name="description" content="Engineering case for an authenticated Mitmproxy–Privoxy–Tor stack with policy enforcement, DNS controls, containerized services, and host automation.">
+    <meta name="author" content="Patrick Dev">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+    <meta name="referrer" content="no-referrer">
+    <meta name="theme-color" content="#080b10">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+    <link rel="canonical" href="https://patrickdev-it.github.io/projects/privacy-proxy/">
+    <link rel="alternate" hreflang="en" href="https://patrickdev-it.github.io/projects/privacy-proxy/">
+    <link rel="alternate" hreflang="x-default" href="https://patrickdev-it.github.io/projects/privacy-proxy/">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Patrick Dev Engineering Portfolio">
+    <meta property="og:title" content="Authenticated Privacy Proxy — Infrastructure Engineering">
+    <meta property="og:description" content="A policy-enforced proxy chain designed around explicit ingress, routing, DNS, and operator-controlled deployment boundaries.">
+    <meta property="og:url" content="https://patrickdev-it.github.io/projects/privacy-proxy/">
+    <meta property="og:image" content="https://patrickdev-it.github.io/assets/social-privacy-proxy.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Authenticated privacy proxy infrastructure engineering case study">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Authenticated Privacy Proxy — Infrastructure Engineering">
+    <meta name="twitter:description" content="A policy-enforced proxy chain designed around explicit ingress, routing, DNS, and operator-controlled deployment boundaries.">
+    <meta name="twitter:image" content="https://patrickdev-it.github.io/assets/social-privacy-proxy.png">
+    <meta name="twitter:image:alt" content="Authenticated privacy proxy infrastructure engineering case study">
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@graph":[{"@type":"SoftwareSourceCode","@id":"https://patrickdev-it.github.io/projects/privacy-proxy/#software","name":"Authenticated Privacy Proxy","alternateName":"VPN","description":"Authenticated privacy proxy stack with policy enforcement, containerized services, Tor egress, DNS controls, and portable infrastructure automation.","url":"https://patrickdev-it.github.io/projects/privacy-proxy/","codeRepository":"https://github.com/PatrickDev-it/VPN","programmingLanguage":["Python","Shell"],"dateModified":"2026-07-22","inLanguage":"en","keywords":["privacy proxy","Tor","Mitmproxy","network policy","infrastructure automation"],"author":{"@id":"https://patrickdev-it.github.io/#patrick-dev"},"isPartOf":{"@id":"https://patrickdev-it.github.io/#website"}},{"@type":"BreadcrumbList","@id":"https://patrickdev-it.github.io/projects/privacy-proxy/#breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"Portfolio","item":"https://patrickdev-it.github.io/"},{"@type":"ListItem","position":2,"name":"Authenticated Privacy Proxy","item":"https://patrickdev-it.github.io/projects/privacy-proxy/"}]}]}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header"><nav class="nav shell" aria-label="Primary navigation"><a class="brand" href="/" aria-label="Patrick Dev home"><img class="brand-mark" src="/assets/mark.svg" width="34" height="34" alt=""><span>Patrick Dev</span></a><ul class="nav-links"><li><a href="/">Work</a></li><li><a href="/about/">About</a></li><li><a rel="me" href="https://github.com/PatrickDev-it">GitHub</a></li><li><a href="mailto:jobs@patrickdev.it">Contact</a></li></ul></nav></header>
+    <main id="main">
+      <section class="page-hero shell"><p class="eyebrow">Pinned project · Privacy infrastructure</p><span class="status">Main CI + security scans green · operator-managed</span><h1>Authenticated Privacy Proxy</h1><p class="lead">A containerized Mitmproxy–Privoxy–Tor chain that makes ingress authentication, request policy, DNS behavior, egress routing, and host automation explicit and inspectable.</p><div class="actions"><a class="button primary" href="https://github.com/PatrickDev-it/VPN">Inspect the repository</a><a class="button" href="https://github.com/PatrickDev-it/VPN/actions">Review automated gates</a></div></section>
+      <section class="section"><div class="shell content-grid"><div><p class="eyebrow">Engineering thesis</p><h2>Privacy is a routed system, not a product label.</h2></div><div><p>The stack separates authenticated ingress, policy enforcement, HTTP forwarding, Tor egress, and DNS resolution into inspectable service boundaries. Runtime configuration and operator controls determine the effective outcome.</p><p>Docker Compose, Make targets, and Debian host automation provide reproducible setup and verification paths without claiming that infrastructure automation proves a hardened deployment.</p></div></div></section>
+      <section class="section"><div class="shell"><p class="eyebrow">Implemented controls</p><h2>What the repository demonstrates</h2><div class="evidence-grid">
+        <article class="evidence-card"><span class="label">Ingress</span><h3>Authenticated policy boundary</h3><p>Basic or token authentication, user policy, request controls, and bounded rate handling precede forwarding.</p></article>
+        <article class="evidence-card"><span class="label">Routing</span><h3>Layered egress path</h3><p>Mitmproxy, Privoxy, and Tor own distinct responsibilities with stream-isolation and node-policy controls.</p></article>
+        <article class="evidence-card"><span class="label">DNS</span><h3>Local resolver contract</h3><p>Unbound provides local resolution, DNSSEC configuration, optional DNS-over-TLS, and blocklist input.</p></article>
+        <article class="evidence-card"><span class="label">Operations</span><h3>Automated, reviewable setup</h3><p>Container builds, smoke checks, TLS modes, firewall guidance, service setup, and update tasks are explicit.</p></article>
+      </div></div></section>
+      <section class="section"><div class="shell content-grid"><div><p class="eyebrow">Operational boundary</p><h2>The stack does not guarantee anonymity.</h2></div><div><ul><li>Operators remain responsible for ingress exposure, firewall policy, credentials, certificates, logging, patching, and jurisdiction-specific TLS interception requirements.</li><li>Tor routing and geographic node policy change traffic paths; they do not prove anonymity, unlinkability, availability, or endpoint safety.</li><li>Repository CI validates source and configuration paths, not the security posture of an arbitrary deployed host.</li></ul><div class="actions"><a class="button primary" href="https://github.com/PatrickDev-it/VPN#security-notes">Review operating constraints</a><a class="button" href="/">Return to selected work</a></div></div></div></section>
+    </main>
+    <footer class="site-footer"><div class="footer-row shell"><p>© 2026 Patrick Dev. Static by design; no analytics, cookies, or behavioral tracking.</p><div class="footer-links"><a href="/privacy/">Privacy</a><a href="/about/">About</a><a href="https://github.com/PatrickDev-it">GitHub</a></div></div></footer>
+  </body>
+</html>

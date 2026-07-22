@@ -7,6 +7,7 @@ import json
 import re
 import struct
 import sys
+from collections import Counter
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
@@ -31,6 +32,12 @@ TRACKING_SIGNATURES = (
     "sessionstorage.",
 )
 INDEXNOW_KEY_PATTERN = re.compile(r"[a-f0-9]{32}\.txt")
+FEATURED_PROJECTS = (
+    ("/projects/prompt-enhancer/", "https://github.com/PatrickDev-it/cowork-prompt-enhancer"),
+    ("/projects/sistemista/", "https://github.com/PatrickDev-it/sistemista"),
+    ("/projects/autoblog-cms/", "https://github.com/PatrickDev-it/AutoBlog-CMS"),
+    ("/projects/privacy-proxy/", "https://github.com/PatrickDev-it/VPN"),
+)
 
 
 class PageParser(HTMLParser):
@@ -46,9 +53,24 @@ class PageParser(HTMLParser):
         self.current_script: list[str] | None = None
         self.forbidden_tags: list[str] = []
         self.html_lang = ""
+        self.featured_depth = 0
+        self.featured_links: list[str] = []
+        self.headings: list[int] = []
+        self.ids: list[str] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         values = {key.lower(): value or "" for key, value in attrs}
+        if values.get("id"):
+            self.ids.append(values["id"])
+        if re.fullmatch(r"h[1-6]", tag):
+            self.headings.append(int(tag[1]))
+        if tag == "div":
+            if self.featured_depth:
+                self.featured_depth += 1
+            elif "project-grid" in values.get("class", "").split():
+                self.featured_depth = 1
+        elif tag == "a" and self.featured_depth:
+            self.featured_links.append(values.get("href", ""))
         if tag == "html":
             self.html_lang = values.get("lang", "")
         elif tag == "title":
@@ -65,6 +87,8 @@ class PageParser(HTMLParser):
             self.forbidden_tags.append(tag)
 
     def handle_endtag(self, tag: str) -> None:
+        if tag == "div" and self.featured_depth:
+            self.featured_depth -= 1
         if tag == "title":
             self.in_title = False
         elif tag == "script" and self.current_script is not None:
@@ -130,6 +154,14 @@ def validate_html(path: Path) -> list[str]:
         errors.append(f"{relative}: requires exactly one non-empty title")
     if parser.forbidden_tags:
         errors.append(f"{relative}: forbidden elements: {', '.join(sorted(set(parser.forbidden_tags)))}")
+    duplicate_ids = sorted(identifier for identifier, count in Counter(parser.ids).items() if count > 1)
+    if duplicate_ids:
+        errors.append(f"{relative}: duplicate element IDs: {', '.join(duplicate_ids)}")
+    if parser.headings.count(1) != 1 or not parser.headings or parser.headings[0] != 1:
+        errors.append(f"{relative}: requires one h1 as the first heading")
+    for previous, current in zip(parser.headings, parser.headings[1:]):
+        if current > previous + 1:
+            errors.append(f"{relative}: heading level skips from h{previous} to h{current}")
 
     if not is_error_page:
         required = {
@@ -202,6 +234,8 @@ def validate_html(path: Path) -> list[str]:
         target = local_target(url)
         if target is not None and not target.exists():
             errors.append(f"{relative}: broken internal reference: {url}")
+        if tag == "a" and url.startswith("#") and url[1:] not in parser.ids:
+            errors.append(f"{relative}: broken same-page fragment: {url}")
     return errors
 
 
@@ -212,6 +246,54 @@ def main() -> int:
         errors.append("No HTML pages found")
     for path in html_files:
         errors.extend(validate_html(path))
+
+    featured_paths = [path for path, _repository in FEATURED_PROJECTS]
+    home_parser = PageParser()
+    home_parser.feed((SITE / "index.html").read_text(encoding="utf-8"))
+    if home_parser.featured_links != featured_paths:
+        errors.append(
+            "site/index.html: featured project links must match the pinned repository order "
+            f"(expected={featured_paths}, actual={home_parser.featured_links})"
+        )
+
+    home_documents: list[object] = []
+    for payload in home_parser.script_payloads:
+        try:
+            home_documents.append(json.loads(payload))
+        except json.JSONDecodeError:
+            continue
+    item_lists = [
+        node
+        for document in home_documents
+        if isinstance(document, dict)
+        for node in document.get("@graph", [])
+        if isinstance(node, dict) and node.get("@type") == "ItemList"
+    ]
+    structured_paths = [
+        urlparse(item.get("url", "")).path
+        for item_list in item_lists
+        for item in item_list.get("itemListElement", [])
+        if isinstance(item, dict)
+    ]
+    if len(item_lists) != 1 or structured_paths != featured_paths:
+        errors.append(
+            "site/index.html: JSON-LD ItemList must match the pinned repository order "
+            f"(expected={featured_paths}, actual={structured_paths})"
+        )
+
+    llms = (SITE / "llms.txt").read_text(encoding="utf-8") if (SITE / "llms.txt").exists() else ""
+    project_section = llms.partition("## Project cases")[2].partition("## Primary sources")[0]
+    llms_paths = [urlparse(url).path for url in re.findall(r"\]\((https://[^)]+)\)", project_section)]
+    if llms_paths != featured_paths:
+        errors.append(
+            "site/llms.txt: project cases must match the pinned repository order "
+            f"(expected={featured_paths}, actual={llms_paths})"
+        )
+
+    for project_path, repository in FEATURED_PROJECTS:
+        page = SITE / project_path.lstrip("/") / "index.html"
+        if not page.is_file() or repository not in page.read_text(encoding="utf-8"):
+            errors.append(f"site{project_path}: missing canonical repository link {repository}")
 
     try:
         sitemap = ElementTree.parse(SITE / "sitemap.xml")
