@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import re
 import struct
 import sys
 from html.parser import HTMLParser
@@ -29,6 +30,7 @@ TRACKING_SIGNATURES = (
     "localstorage.",
     "sessionstorage.",
 )
+INDEXNOW_KEY_PATTERN = re.compile(r"[a-f0-9]{32}\.txt")
 
 
 class PageParser(HTMLParser):
@@ -227,6 +229,12 @@ def main() -> int:
     robots = (SITE / "robots.txt").read_text(encoding="utf-8") if (SITE / "robots.txt").exists() else ""
     if f"Sitemap: {ORIGIN}/sitemap.xml" not in robots or "Allow: /" not in robots:
         errors.append("site/robots.txt: missing allow or canonical sitemap directive")
+
+    indexnow_keys = [path for path in SITE.glob("*.txt") if INDEXNOW_KEY_PATTERN.fullmatch(path.name)]
+    if len(indexnow_keys) != 1:
+        errors.append("site: requires exactly one 32-character IndexNow verification file")
+    elif indexnow_keys[0].read_text(encoding="utf-8").strip() != indexnow_keys[0].stem:
+        errors.append("site: IndexNow verification file content must match its filename")
 
     if errors:
         print("Static-site validation failed:")
