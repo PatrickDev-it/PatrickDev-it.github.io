@@ -1,6 +1,6 @@
 # Patrick Dev — Engineering Portfolio
 
-> Evidence-led portfolio for product, systems, applied AI, ML, backend reliability, and portable operations.
+> Evidence-led portfolio for AI agent, platform, and full-stack engineering, with explicit reliability and portable-operations evidence.
 
 Canonical site: https://patrickdev-it.github.io/
 Author: Patrick Dev (GitHub: PatrickDev-it)

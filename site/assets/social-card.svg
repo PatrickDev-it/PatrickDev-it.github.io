@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
   <title id="title">Patrick Dev engineering portfolio</title>
-  <desc id="desc">Product, systems, applied AI, machine learning, and platform engineering.</desc>
+  <desc id="desc">AI agent, platform, and full-stack engineering backed by verifiable evidence.</desc>
   <defs>
     <radialGradient id="cyan" cx="85%" cy="0%" r="75%">
       <stop offset="0" stop-color="#17424d"/>
@@ -12,8 +12,7 @@
   <path d="M91 132V91h19.8c11.8 0 18.3 6.2 18.3 15.4 0 9.3-6.5 15.5-18.3 15.5h-9.5V132H91Zm10.3-19h8.8c5.6 0 8.5-2.2 8.5-6.6 0-4.3-2.9-6.5-8.5-6.5h-8.8V113Z" fill="#65d9e8"/>
   <text x="70" y="270" fill="#65d9e8" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="4">ENGINEERING PORTFOLIO</text>
   <text x="70" y="365" fill="#f4f7fb" font-family="Arial, sans-serif" font-size="78" font-weight="700">Patrick Dev</text>
-  <text x="70" y="435" fill="#c4ccd7" font-family="Arial, sans-serif" font-size="34">Product · Systems · AI/ML · Platform Engineering</text>
+  <text x="70" y="435" fill="#c4ccd7" font-family="Arial, sans-serif" font-size="34">AI Agent · Platform · Full-stack Engineering</text>
   <line x1="70" y1="520" x2="1130" y2="520" stroke="#253041"/>
   <text x="70" y="566" fill="#a7b1c0" font-family="Arial, sans-serif" font-size="24">Evidence before claims. Contracts before providers.</text>
 </svg>
-
