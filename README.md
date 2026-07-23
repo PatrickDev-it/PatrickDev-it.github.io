@@ -1,6 +1,6 @@
 # Patrick Dev — static engineering portfolio
 
-The source for [patrickdev-it.github.io](https://patrickdev-it.github.io/), an evidence-led engineering portfolio optimized for fast delivery, accessible reading, search discovery, and low maintenance.
+The source for [patrickdev-it.github.io](https://patrickdev-it.github.io/), an evidence-led AI agent, platform, and full-stack engineering portfolio optimized for fast delivery, accessible reading, search discovery, and low maintenance.
 
 ## Design constraints
 
@@ -39,7 +39,7 @@ The validator fails on incomplete page or social metadata, missing or malformed 
 
 ## Deploy
 
-Pushes to `main` run validation, publish the exact `site/` directory with GitHub's official Pages workflow, and then notify IndexNow participants using the canonical sitemap. Search-engine notification runs after deployment and does not introduce browser-side code or data collection. There is no generated production output to drift from source.
+Pushes to `main` run validation, publish the exact `site/` directory with GitHub's official Pages workflow, and then notify IndexNow participants using the canonical sitemap. Search-engine notification runs after deployment and does not introduce browser-side code or data collection. Google Search Console ownership is verified with a homepage meta tag. There is no generated production output to drift from source.
 
 ## Maintenance
 

@@ -17,6 +17,8 @@ from xml.etree import ElementTree
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "site"
 ORIGIN = "https://patrickdev-it.github.io"
+PUBLIC_ROLE = "AI Agent, Platform & Full-stack Engineer"
+GOOGLE_SITE_VERIFICATION = "SDRpU9uekSorB0AMVWqNsg15J1lCjftGlEs79zDA-KM"
 TRACKING_SIGNATURES = (
     "google-analytics.com",
     "googletagmanager.com",
@@ -250,6 +252,10 @@ def main() -> int:
     featured_paths = [path for path, _repository in FEATURED_PROJECTS]
     home_parser = PageParser()
     home_parser.feed((SITE / "index.html").read_text(encoding="utf-8"))
+    if GOOGLE_SITE_VERIFICATION != meta_value(home_parser, "name", "google-site-verification"):
+        errors.append("site/index.html: missing or incorrect Google Search Console verification")
+    if PUBLIC_ROLE not in "".join(home_parser.title_text):
+        errors.append(f"site/index.html: title must expose the public role '{PUBLIC_ROLE}'")
     if home_parser.featured_links != featured_paths:
         errors.append(
             "site/index.html: featured project links must match the pinned repository order "
@@ -280,6 +286,16 @@ def main() -> int:
             "site/index.html: JSON-LD ItemList must match the pinned repository order "
             f"(expected={featured_paths}, actual={structured_paths})"
         )
+
+    people = [
+        node
+        for document in home_documents
+        if isinstance(document, dict)
+        for node in document.get("@graph", [])
+        if isinstance(node, dict) and node.get("@type") == "Person"
+    ]
+    if len(people) != 1 or people[0].get("jobTitle") != PUBLIC_ROLE:
+        errors.append(f"site/index.html: Person jobTitle must equal '{PUBLIC_ROLE}'")
 
     llms = (SITE / "llms.txt").read_text(encoding="utf-8") if (SITE / "llms.txt").exists() else ""
     project_section = llms.partition("## Project cases")[2].partition("## Primary sources")[0]
